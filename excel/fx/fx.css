@@ -1,0 +1,23 @@
+.conteiner-fixacao {
+    display: flex;
+    justify-content: center;
+}
+
+.fixacao {
+    width: 400px;
+    margin: 50px 0px;
+    height: 60px;
+    display: flex;
+    transition: .3s;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    background-size: 200% 170%;
+    animation: gradientAnimation 10s ease-in-out infinite;
+    background: linear-gradient(45deg, #fe5759, #8b3dff);
+}
+
+.fixacao:hover {
+    scale: 1.03;
+}
