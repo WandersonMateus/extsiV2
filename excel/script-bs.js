@@ -32,6 +32,50 @@ const ps14 = document.getElementById('psp14');
 
 
 // Adiciona um evento de clique à div
+ex01.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/1.pdf';
+});
+ex02.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/2.pdf';
+});
+ex03.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/3.pdf';
+});
+ex04.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/4.pdf';
+});
+ex05.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/5.pdf';
+});
+ex06.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/6.pdf';
+});
+ex07.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/7.pdf';
+});
+ex08.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/8.pdf';
+});
+ex09.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/9.pdf';
+});
+ex10.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/10.pdf';
+});
+ex11.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/11.pdf';
+});
+ex12.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/12.pdf';
+});
+ex13.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/13.pdf';
+});
+ex14.addEventListener('click', function() {
+    window.location.href = '../exs/excel-2016/14.pdf';
+});
+
+
 ps01.addEventListener('click', function() {
     window.location.href = '../psps/excel-2016/001.pdf';
 });
