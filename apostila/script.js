@@ -5,6 +5,6 @@ apEx.addEventListener('click', function() {
     window.location.href = './excel/excelop.html';
 });
 apInt.addEventListener('click', function() {
-    window.location.href = '';
+    window.location.href = './introducao/int-index.html';
 });
 
