@@ -16,7 +16,7 @@ excelAv.addEventListener('click', function() {
 });
 
 excelPsb.addEventListener('click', function() {
-    window.location.href = './ps/psp.html';
+    window.location.href = './ps/psp-bs.html'; //mechi aqui
 });
 
 
