@@ -12,6 +12,7 @@ const ps11 = document.getElementById('psp11');
 const ps12 = document.getElementById('psp12');
 const ps13 = document.getElementById('psp13');
 const ps14 = document.getElementById('psp14');
+const au14 = document.getElementById('au14');
 
 ps01.addEventListener('click', function() {
     window.location.href = '../psps/excel-2016/001.pdf';
@@ -54,4 +55,7 @@ ps13.addEventListener('click', function() {
 });
 ps14.addEventListener('click', function() {
     window.location.href = '../psps/excel-2016/014.pdf';
+});
+au14.addEventListener('click', function() {
+    window.location.href = '../psps/aula_14/index.html';
 });
