@@ -1,5 +1,5 @@
 // Seleciona a div pelo seu ID
-
+const ex01 = document.getElementById('fx01');
 const ex02 = document.getElementById('fx02');
 const ex03 = document.getElementById('fx03');
 const ex04 = document.getElementById('fx04');
