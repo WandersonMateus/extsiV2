@@ -1,11 +1,3 @@
-
-
-document.getElementById('textBox3').addEventListener('click', function() {
-    this.querySelector('h3').textContent = "BLOQUEADO";
-});
-
-
-
 // Seleciona a div pelo seu ID
 const clickableDivExc = document.getElementById('excel');
 const clickableDivInt = document.getElementById('introducao');
