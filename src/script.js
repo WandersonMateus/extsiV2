@@ -2,6 +2,7 @@
 const clickableDivExc = document.getElementById('excel');
 const clickableDivInt = document.getElementById('introducao');
 const clickableDivTxt = document.getElementById('textos');
+const clickableDivAxl = document.getElementById('auxiliares');
 
 // Adiciona um evento de clique à div
 clickableDivInt.addEventListener('click', function() {
@@ -12,4 +13,7 @@ clickableDivExc.addEventListener('click', function() {
 });
 clickableDivTxt.addEventListener('click', function() {
     window.location.href = './digitacao/digitacao-home.html';
+});
+clickableDivAxl.addEventListener('click', function() {
+    window.location.href = './auxiliares/auxiliares-home.html';
 });
