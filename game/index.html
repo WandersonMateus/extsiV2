@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Digitação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo de Digitação</h1>
+        <div id="game-info">
+            <p><span class="sub-title">Pontuação:</span> <span id="score">0</span></p>
+            <p><span class="sub-title">Nível:</span> <span id="level">1</span></p>
+            <p><span class="sub-title">Próximo Nível:</span> <span id="goal">10 pontos</span></p>
+            <p id="timer"><span class="sub-title">Tempo:</span> 90s</p>
+        </div>
+        <div id="word-display" class="word-display"></div>
+        <input type="text" id="word-input" class="word-input" placeholder="Digite a palavra" autocomplete="off">
+        <div class="button-container">
+            <button id="start-button">Iniciar</button>
+            <button id="pause-button">Pausar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
