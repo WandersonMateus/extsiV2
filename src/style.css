@@ -177,3 +177,40 @@ header .topic ul li a:hover {
 html {
     scroll-behavior: smooth;
 }
+
+
+
+/* icon */
+
+.games {
+    position: fixed;
+    width: 150px;
+    top: 0;
+    height: 150px;
+    /* background-color: #8b3dff; */
+}
+
+.icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    transition: .3s;
+    position: relative;
+    align-items: center;
+    background-color: #ffffff;
+    width: 80px;
+    height: 80px;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    border: 3px solid #8b3dff;
+}
+
+.icon img {
+    width: 55px;
+    height: 55px;
+}
+
+.icon:active {
+    scale: 1.01;
+}

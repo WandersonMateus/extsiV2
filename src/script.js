@@ -4,6 +4,9 @@ const clickableDivInt = document.getElementById('introducao');
 const clickableDivTxt = document.getElementById('textos');
 const clickableDivAxl = document.getElementById('auxiliares');
 
+const clickableDivGame = document.getElementById('idGame');
+
+
 // Adiciona um evento de clique à div
 clickableDivInt.addEventListener('click', function() {
     window.location.href = './apostila/apostila-home.html';
@@ -16,4 +19,8 @@ clickableDivTxt.addEventListener('click', function() {
 });
 clickableDivAxl.addEventListener('click', function() {
     window.location.href = './auxiliares/auxiliares-home.html';
+});
+
+clickableDivGame.addEventListener('click', function() {
+    window.location.href = './game/index.html';
 });
