@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Digitação TSI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo de Digitação TSI</h1>
+        <div id="game-info">
+            <p id="score">Pontuação: 0</p>
+            <p id="level">Nível: 1</p>
+            <p id="goal">Próximo Nível: 10 pontos</p>
+            <p id="timer">Tempo: 90s</p>
+        </div>
+        <div id="word-display" class="word-display"></div>
+        <input type="text" id="word-input" class="word-input" autocomplete="off">
+        <div class="button-container">
+            <button id="start-button">Iniciar</button>
+            <button id="pause-button">Pausar</button>
+        </div>
+        <div class="codename-container">
+            <label for="codename">Codinome:</label>
+            <input type="text" id="codename" class="codename-input" placeholder="Digite seu codinome">
+        </div>
+        <div class="ranking-container">
+            <h2>Ranking</h2>
+            <ol id="ranking-list"></ol>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

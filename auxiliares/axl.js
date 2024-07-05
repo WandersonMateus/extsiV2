@@ -1,14 +1,10 @@
-document.getElementById('nada').addEventListener('click', function() {
-    this.querySelector('h3').textContent = "BLOQUEADO";
-});
-
-
 // Seleciona a div pelo seu ID
 const clickableDivPwp = document.getElementById('pwp');
 const clickableDivPwb = document.getElementById('pwb');
 const clickableDivWrd = document.getElementById('wrd');
 const clickableDivExl = document.getElementById('exl');
 const clickableDivWnd = document.getElementById('wnd');
+const clickableDivTst = document.getElementById('tst');
 
 // Adiciona um evento de clique à div
 clickableDivPwp.addEventListener('click', function() {
@@ -25,4 +21,7 @@ clickableDivExl.addEventListener('click', function() {
 });
 clickableDivWnd.addEventListener('click', function() {
     window.location.href = 'https://drive.google.com/drive/folders/1auX1teIMz-w93ukfBx3dThOHE0qYT3Jt?usp=sharing';
+});
+clickableDivTst.addEventListener('click', function() {
+    window.location.href = './teste/index.html';
 });
