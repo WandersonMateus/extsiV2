@@ -1,5 +1,5 @@
 const words = [
-    "amizade", "alegria", "amor", "aprendizado", "aventura", "beleza", "bondade", "brincadeira", "café", "calma",
+    "*"
     // Adicione as outras palavras aqui, até 500
 ];
 
@@ -9,8 +9,8 @@ let level = 1;
 let goal = 10; // Pontuação objetivo para passar de nível
 let wordsTyped = 0;
 let maxWords = 10; // Máximo de palavras por nível
-let timeLimit = 90; // Tempo limite inicial em segundos
-const minTimeLimit = 30; // Tempo limite mínimo em segundos
+let timeLimit = 10; // Tempo limite inicial em segundos
+const minTimeLimit = 10; // Tempo limite mínimo em segundos
 let timer;
 let gameActive = false;
 let codename = "";
