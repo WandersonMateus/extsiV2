@@ -26,14 +26,15 @@ const words = [
 // Adicione as outras palavras aqui, até 500
 ];
 
+
 let currentWord = "";
 let score = 0;
 let level = 1;
 let goal = 10; // Pontuação objetivo para passar de nível
 let wordsTyped = 0;
 let maxWords = 10; // Máximo de palavras por nível
-let timeLimit = 90; // Tempo limite inicial em segundos
-const minTimeLimit = 45; // Tempo limite mínimo em segundos
+let timeLimit = 80; // Tempo limite inicial em segundos
+const minTimeLimit = 50 ; // Tempo limite mínimo em segundos
 let timer;
 let gameActive = false;
 
@@ -81,7 +82,12 @@ function startTimer() {
         timerDisplay.innerText = `Tempo: ${timeRemaining}s`;
         if (timeRemaining <= 0) {
             clearInterval(timer);
-            alert("O tempo acabou! Reiniciando o nível...");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'O tempo acabou! Reiniciando o nível...',
+                footer: '<a href="./dicas.html">Quero dicas para digitar melhor/rápido!</a>'
+            });
             resetGame();
         }
     }, 1000);
@@ -109,7 +115,10 @@ function levelUp() {
     timeLimit = Math.max(timeLimit, minTimeLimit); // Garante que o tempo limite não fique abaixo de 30 segundos
     levelDisplay.innerText = `${level}`; //Nível: 
     goalDisplay.innerText = `${goal} pontos`; //Próximo Nível
-    alert(`Parabéns! Você alcançou o nível ${level}. Continue assim!`);
+    Swal.fire({
+        icon: 'success',
+        title: `Parabéns! Você alcançou o nível ${level}. Continue assim!`,
+    });
     currentWord = getRandomWord();
     displayWord(currentWord);
     startTimer();

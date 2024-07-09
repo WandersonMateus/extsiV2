@@ -1,35 +1,260 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo de Digitação TSI</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Jogo de Digitação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #101728;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .container {
+            width: 350px;
+            background-color: #1f2840;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        .sub-title {
+            font-weight: 700;
+        }
+
+        #game-info {
+            margin-bottom: 20px;
+        }
+
+        #game-info p {
+            text-align: left;
+            margin: 8px 0;
+        }
+
+        .word-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+            margin-top: 50px;
+            font-size: 24px;
+        }
+
+        .word-display span {
+            margin: 0 1px;
+        }
+
+        .word-input {
+            width: 250px;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .correct {
+            color: #ff5757 !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
     <div class="container">
-        <h1>Jogo de Digitação TSI</h1>
+        <h1>Jogo de Digitação</h1>
         <div id="game-info">
-            <p id="score">Pontuação: 0</p>
-            <p id="level">Nível: 1</p>
-            <p id="goal">Próximo Nível: 10 pontos</p>
-            <p id="timer">Tempo: 90s</p>
+            <p><span class="sub-title">Pontuação:</span> <span id="score">0</span></p>
+            <p><span class="sub-title">Nível:</span> <span id="level">1</span></p>
+            <p><span class="sub-title">Próximo Nível:</span> <span id="goal">10 pontos</span></p>
+            <p id="timer"><span class="sub-title">Tempo:</span> 90s</p>
         </div>
         <div id="word-display" class="word-display"></div>
-        <input type="text" id="word-input" class="word-input" autocomplete="off">
+        <input type="text" id="word-input" class="word-input" placeholder="Digite a palavra" autocomplete="off">
         <div class="button-container">
             <button id="start-button">Iniciar</button>
             <button id="pause-button">Pausar</button>
         </div>
-        <div class="codename-container">
-            <label for="codename">Codinome:</label>
-            <input type="text" id="codename" class="codename-input" placeholder="Digite seu codinome">
-        </div>
-        <div class="ranking-container">
-            <h2>Ranking</h2>
-            <ol id="ranking-list"></ol>
-        </div>
     </div>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const words = [
+            "teste", "teste", "teste" 
+        ];
+
+        let currentWord = "";
+        let score = 0;
+        let level = 1;
+        let goal = 10; // Pontuação objetivo para passar de nível
+        let wordsTyped = 0;
+        let maxWords = 10; // Máximo de palavras por nível
+        let timeLimit = 90; // Tempo limite inicial em segundos
+        const minTimeLimit = 45; // Tempo limite mínimo em segundos
+        let timer;
+        let gameActive = false;
+
+        const wordDisplay = document.getElementById("word-display");
+        const wordInput = document.getElementById("word-input");
+        const scoreDisplay = document.getElementById("score");
+        const levelDisplay = document.getElementById("level");
+        const goalDisplay = document.getElementById("goal");
+        const timerDisplay = document.getElementById("timer");
+        const startButton = document.getElementById("start-button");
+        const pauseButton = document.getElementById("pause-button");
+
+        function getRandomWord() {
+            return words[Math.floor(Math.random() * words.length)];
+        }
+
+        function startGame() {
+            if (!gameActive) {
+                gameActive = true;
+                timeLimit = Math.max(timeLimit, minTimeLimit); // Garante que o tempo limite seja no mínimo 30 segundos
+                currentWord = getRandomWord();
+                displayWord(currentWord);
+                wordInput.value = "";
+                wordInput.focus();
+                startTimer();
+            }
+        }
+
+        function displayWord(word) {
+            const wordArray = word.split("");
+            wordDisplay.innerHTML = "";
+            wordArray.forEach((letter) => {
+                const span = document.createElement("span");
+                span.innerText = letter;
+                wordDisplay.appendChild(span);
+            });
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            let timeRemaining = timeLimit;
+            timerDisplay.innerText = `Tempo: ${timeRemaining}s`;
+            timer = setInterval(() => {
+                timeRemaining--;
+                timerDisplay.innerText = `Tempo: ${timeRemaining}s`;
+                if (timeRemaining <= 0) {
+                    clearInterval(timer);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'O tempo acabou! Reiniciando o nível...',
+                        footer: '<a href="">Por que eu tenho esse problema?</a>'
+                    });
+                    resetGame();
+                }
+            }, 1000);
+        }
+
+        function pauseGame() {
+            clearInterval(timer);
+            gameActive = false;
+        }
+
+        function updateScore() {
+            score++;
+            wordsTyped++;
+            scoreDisplay.innerText = `${score}`;
+            if (wordsTyped >= maxWords) {
+                levelUp();
+            }
+        }
+
+        function levelUp() {
+            level++;
+            goal += 10; // Aumenta a pontuação objetivo para o próximo nível
+            wordsTyped = 0; // Resetar contador de palavras
+            timeLimit -= 5; // Reduz o tempo limite em 5 segundos por nível (opcional, para aumentar a dificuldade)
+            timeLimit = Math.max(timeLimit, minTimeLimit); // Garante que o tempo limite não fique abaixo de 30 segundos
+            levelDisplay.innerText = `${level}`; //Nível: 
+            goalDisplay.innerText = `${goal} pontos`; //Próximo Nível
+            Swal.fire({
+                icon: 'success',
+                title: `Parabéns! Você alcançou o nível ${level}. Continue assim!`,
+            });
+            currentWord = getRandomWord();
+            displayWord(currentWord);
+            startTimer();
+        }
+
+        function resetGame() {
+            score = 0;
+            level = 1;
+            goal = 10;
+            wordsTyped = 0;
+            timeLimit = 90; // Reiniciando o tempo para 90 segundos após cada jogo completo
+            scoreDisplay.innerText = `${score}`; //Pontuação
+            levelDisplay.innerText = `${level}`; //Nível
+            goalDisplay.innerText = `${goal} pontos`; //Próximo Nível: 
+            timerDisplay.innerText = `Tempo: ${timeLimit}s`;
+            gameActive = false;
+        }
+
+        wordInput.addEventListener("input", () => {
+            if (gameActive) {
+                const typedWord = wordInput.value;
+                const currentWordArray = currentWord.split("");
+                const typedWordArray = typedWord.split("");
+
+                currentWordArray.forEach((letter, index) => {
+                    const span = wordDisplay.children[index];
+                    if (!span) return;
+                    const typedLetter = typedWordArray[index];
+                    if (typedLetter === letter) {
+                        span.classList.add("correct");
+                    } else {
+                        span.classList.remove("correct");
+                    }
+                });
+
+                if (typedWord === currentWord) {
+                    updateScore();
+                    wordInput.value = "";
+                    if (wordsTyped < maxWords) {
+                        currentWord = getRandomWord();
+                        displayWord(currentWord);
+                    } else {
+                        levelUp();
+                    }
+                }
+            }
+        });
+
+        startButton.addEventListener("click", startGame);
+        pauseButton.addEventListener("click", pauseGame);
+    </script>
 </body>
 </html>
