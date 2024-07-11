@@ -1,6 +1,29 @@
 const words = [
-    "teste" 
-    // Adicione as outras palavras aqui, até 500
+    "amizade", "alegria", "amor", "aprendizado", "aventura", "beleza", "bondade", "brincadeira", "café", "calma",
+    "carinho", "casa", "céu", "chuva", "coragem", "criatividade", "cuidado", "dança", "dedicação", "desejo", 
+    "diversão", "doce", "educação", "energia", "esperança", "estudo", "família", "felicidade", "festa", "flor", 
+    "força", "fraternidade", "futuro", "garra", "gentileza", "gratidão", "harmonia", "honra", "honestidade", 
+    "imaginação", "independência", "inspiração", "inteligência", "jogo", "justiça", "liberdade", "luz", "magia", 
+    "mar", "memória", "mente", "música", "natureza", "paz", "persistência", "prazer", "respeito", "Vem", 
+    "riso", "sabedoria", "saúde", "serenidade", "sonho", "sucesso", "surpresa", "talento", "garrafa", "trabalho", 
+    "transformação", "união", "vida", "vitória", "voz", "vontade", "amizade", "amor", "animal", "árvore", "arte", 
+    "beleza", "bondade", "brincar", "bolo", "brincar", "bola", "calma", "casa", "cachorro", "céu", "chuva", "comida", 
+    "cor", "coração", "coragem", "cuidar", "doce", "dia", "descobrir", "dança", "educar", "energia", "escola", 
+    "estudar", "fazer", "feliz", "festa", "flor", "futuro", "gato", "gente", "girar", "gargalhada", "grande", "gentil", 
+    "gente", "gosto", "harmonia", "honestidade", "imaginação", "inteligente", "ir", "jardim", "jogar", "jogo", "justiça", 
+    "legal", "ler", "luz", "lago", "magia", "mar", "melodia", "nadar", "natureza", "olhar", "ouvir", "paz", "pular", 
+    "pintar", "pintar", "pensar", "persistir", "prazer", "plantar", "quebrar", "resolver", "riso", "saber", "sabedoria", 
+    "sorrir", "sonho", "sentir", "ser", "tocar", "tranquilidade", "trabalhar", "unir", "ver", "vida", "vitória", "viajar", 
+    "voar", "vontade", "amizade", "alegria", "amor", "aprender", "aventura", "abraço", "azul", "abraço", "amarelo", 
+    "beleza", "brincar", "cantar", "casa", "calma", "chuva", "correr", "carinho", "contar", "correr", "conhecer", 
+    "cuidar", "criar", "dançar", "ensinar", "escutar", "estudar", "festa", "flor", "brincar", "gargalhar", "girar", 
+    "gostar", "ajudar", "imaginar", "jogar", "ler", "lutar", "nadar", "ouvir", "plantar", "pintar", "pular", "querer", 
+    "rir", "sonhar", "ser", "tocar", "unir", "ver", "voar", "viver", "vencer", "viajar", "valor", "amizade", "alegria", 
+    "amor", "aprender", "aventura", "abraço", "azul", "abraço", "amarelo", "beleza", "brincar", "cantar", "casa", "calma", 
+    "chuva", "correr", "carinho", "contar", "correr", "conhecer", "cuidar", "criar", "dançar", "ensinar", "escutar", 
+    "estudar", "festa", "flor", "brincar", "gargalhar", "girar", "gostar", "ajudar", "imaginar", "jogar", "ler", "lutar", 
+    "nadar", "ouvir", "plantar", "pintar", "pular", "querer", "rir", "sonhar", "ser", "tocar", "unir", "Oxi", "Wanderson", "Mateus", "dos", "Santos", "Santana", "TSI" 
+// Adicione as outras palavras aqui, até 500
 ];
 
 let currentWord = "";
