@@ -1,16 +1,17 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #101728;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    color: #fff;
 }
 
 .container {
-    max-width: 600px;
-    background-color: #fff;
+    width: 350px;
+    background-color: #1f2840;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -18,7 +19,11 @@ body {
 }
 
 h1 {
-    color: #333;
+    margin-bottom: 40px;
+}
+
+.sub-title {
+    font-weight: 700;
 }
 
 #game-info {
@@ -26,6 +31,7 @@ h1 {
 }
 
 #game-info p {
+    text-align: left;
     margin: 8px 0;
 }
 
@@ -33,17 +39,18 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
     font-size: 24px;
-    font-weight: bold;
 }
 
 .word-display span {
-    margin: 0 5px;
+    margin: 0 1px;
 }
 
 .word-input {
-    width: 100%;
+    width: 250px;
+    text-align: center;
     padding: 10px;
     font-size: 18px;
     border: 2px solid #ccc;
@@ -51,6 +58,8 @@ h1 {
 }
 
 .button-container {
+    display: flex;
+    justify-content: space-around;
     margin-top: 20px;
 }
 
@@ -69,31 +78,6 @@ button:hover {
     background-color: #0056b3;
 }
 
-.codename-container {
-    margin-top: 20px;
-}
-
 .correct {
-    color: blue !important;
-}
-
-.incorrect {
-    color: red !important;
-}
-
-.ranking-container {
-    margin-top: 30px;
-    text-align: left;
-}
-
-.ranking-container h2 {
-    margin-bottom: 10px;
-}
-
-.ranking-container ol {
-    padding-left: 20px;
-}
-
-.ranking-container li {
-    margin-bottom: 5px;
+    color: #ff5757 !important;
 }

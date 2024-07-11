@@ -1,5 +1,5 @@
 const words = [
-    "*"
+    "teste" 
     // Adicione as outras palavras aqui, até 500
 ];
 
@@ -9,11 +9,11 @@ let level = 1;
 let goal = 10; // Pontuação objetivo para passar de nível
 let wordsTyped = 0;
 let maxWords = 10; // Máximo de palavras por nível
-let timeLimit = 10; // Tempo limite inicial em segundos
-const minTimeLimit = 10; // Tempo limite mínimo em segundos
+let timeLimit = 80; // Tempo limite inicial em segundos
+const minTimeLimit = 50 ; // Tempo limite mínimo em segundos
 let timer;
 let gameActive = false;
-let codename = "";
+let timeRemaining = timeLimit;
 
 const wordDisplay = document.getElementById("word-display");
 const wordInput = document.getElementById("word-input");
@@ -23,23 +23,14 @@ const goalDisplay = document.getElementById("goal");
 const timerDisplay = document.getElementById("timer");
 const startButton = document.getElementById("start-button");
 const pauseButton = document.getElementById("pause-button");
-const codenameInput = document.getElementById("codename");
-const rankingList = document.getElementById("ranking-list");
 
 function getRandomWord() {
     return words[Math.floor(Math.random() * words.length)];
 }
 
 function startGame() {
-    codename = codenameInput.value.trim();
-    if (!codename) {
-        alert("Por favor, digite um codinome para começar.");
-        return;
-    }
-
     if (!gameActive) {
         gameActive = true;
-        timeLimit = Math.max(timeLimit, minTimeLimit); // Garante que o tempo limite seja no mínimo 30 segundos
         currentWord = getRandomWord();
         displayWord(currentWord);
         wordInput.value = "";
@@ -60,15 +51,18 @@ function displayWord(word) {
 
 function startTimer() {
     clearInterval(timer);
-    let timeRemaining = timeLimit;
     timerDisplay.innerText = `Tempo: ${timeRemaining}s`;
     timer = setInterval(() => {
         timeRemaining--;
         timerDisplay.innerText = `Tempo: ${timeRemaining}s`;
         if (timeRemaining <= 0) {
             clearInterval(timer);
-            alert("O tempo acabou! Reiniciando o nível...");
-            saveScore();
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'O tempo acabou! Reiniciando o nível...',
+                footer: '<a href="./dicas.html">Quero dicas para digitar melhor/rápido!</a>'
+            });
             resetGame();
         }
     }, 1000);
@@ -82,9 +76,12 @@ function pauseGame() {
 function updateScore() {
     score++;
     wordsTyped++;
-    scoreDisplay.innerText = `Pontuação: ${score}`;
+    scoreDisplay.innerText = `${score}`;
     if (wordsTyped >= maxWords) {
         levelUp();
+    } else {
+        currentWord = getRandomWord();
+        displayWord(currentWord);
     }
 }
 
@@ -93,56 +90,40 @@ function levelUp() {
     goal += 10; // Aumenta a pontuação objetivo para o próximo nível
     wordsTyped = 0; // Resetar contador de palavras
     timeLimit -= 5; // Reduz o tempo limite em 5 segundos por nível (opcional, para aumentar a dificuldade)
-    timeLimit = Math.max(timeLimit, minTimeLimit); // Garante que o tempo limite não fique abaixo de 30 segundos
-    levelDisplay.innerText = `Nível: ${level}`;
-    goalDisplay.innerText = `Próximo Nível: ${goal} pontos`;
-    alert(`Parabéns! Você alcançou o nível ${level}. Continue assim!`);
-    currentWord = getRandomWord();
-    displayWord(currentWord);
-    startTimer();
+    timeLimit = Math.max(timeLimit, minTimeLimit); // Garante que o tempo limite não fique abaixo de 50 segundos
+    levelDisplay.innerText = `${level}`; // Nível
+    goalDisplay.innerText = `${goal} pontos`; // Próximo Nível
+    clearInterval(timer); // Pausa o temporizador
+    Swal.fire({
+        icon: 'success',
+        title: `Parabéns! Você alcançou o nível ${level}. Continue assim!`,
+    }).then(() => {
+        currentWord = getRandomWord();
+        displayWord(currentWord);
+        wordInput.value = "";
+        timeRemaining = timeLimit; // Reinicia o temporizador para o novo nível
+        startTimer(); // Retoma o temporizador
+    });
 }
 
 function resetGame() {
+    clearInterval(timer); // Garante que o temporizador anterior seja limpo
     score = 0;
     level = 1;
     goal = 10;
     wordsTyped = 0;
     timeLimit = 90; // Reiniciando o tempo para 90 segundos após cada jogo completo
-    scoreDisplay.innerText = `Pontuação: ${score}`;
-    levelDisplay.innerText = `Nível: ${level}`;
-    goalDisplay.innerText = `Próximo Nível: ${goal} pontos`;
+    timeRemaining = timeLimit; // Reinicia o tempo restante
+    scoreDisplay.innerText = `${score}`; // Pontuação
+    levelDisplay.innerText = `${level}`; // Nível
+    goalDisplay.innerText = `${goal} pontos`; // Próximo Nível
     timerDisplay.innerText = `Tempo: ${timeLimit}s`;
     gameActive = false;
 }
 
-function saveScore() {
-    const playerData = {
-        codename: codename,
-        level: level
-    };
-
-    let ranking = JSON.parse(localStorage.getItem("ranking")) || [];
-    ranking.push(playerData);
-    ranking.sort((a, b) => b.level - a.level); // Ordena por nível em ordem decrescente
-    ranking = ranking.slice(0, 3); // Mantém apenas os top 3
-    localStorage.setItem("ranking", JSON.stringify(ranking));
-
-    displayRanking();
-}
-
-function displayRanking() {
-    const ranking = JSON.parse(localStorage.getItem("ranking")) || [];
-    rankingList.innerHTML = "";
-    ranking.forEach((player, index) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = `${index + 1}. ${player.codename} - Nível: ${player.level}`;
-        rankingList.appendChild(listItem);
-    });
-}
-
 wordInput.addEventListener("input", () => {
     if (gameActive) {
-        const typedWord = wordInput.value;
+        const typedWord = wordInput.value.trim(); // Remove espaços em branco no início e fim
         const currentWordArray = currentWord.split("");
         const typedWordArray = typedWord.split("");
 
@@ -151,28 +132,24 @@ wordInput.addEventListener("input", () => {
             if (!span) return;
             const typedLetter = typedWordArray[index];
             if (typedLetter === letter) {
-                span.classList.remove("incorrect");
                 span.classList.add("correct");
             } else {
                 span.classList.remove("correct");
-                span.classList.add("incorrect");
             }
         });
 
         if (typedWord === currentWord) {
             updateScore();
             wordInput.value = "";
-            if (wordsTyped < maxWords) {
-                currentWord = getRandomWord();
-                displayWord(currentWord);
-            } else {
-                levelUp();
-            }
         }
     }
 });
 
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", () => {
+    if (!gameActive) {
+        startGame();
+    } else {
+        startTimer();
+    }
+});
 pauseButton.addEventListener("click", pauseGame);
-
-window.onload = displayRanking;
