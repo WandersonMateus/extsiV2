@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
+    <div class="box-display">
+        <h2>Ranking</h2>
+        <div class="players">
+            <h3>Player1 - Nível 22</h3>
+            <h3>Player2 - Nível 17</h3>
+            <h3>Player3 - Nível 11</h3>
+        </div>
+        <input type="text" id="codinome-input" placeholder="Digite seu codinome">
+    </div>
     <div class="container">
         <h1>Jogo de Digitação</h1>
         <div id="game-info">
@@ -18,23 +27,12 @@
         </div>
         <div id="word-display" class="word-display"></div>
         <input type="text" id="word-input" class="word-input" placeholder="Digite a palavra" autocomplete="off">
-        <input type="text" id="codename-input" placeholder="Seu codinome">
         <div class="button-container">
             <button id="start-button">Iniciar</button>
             <button id="pause-button">Pausar</button>
         </div>
-        <div id="ranking">
-            <!-- Ranking será preenchido dinamicamente pelo script -->
-        </div>
     </div>
-    <script type="module" src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        // Configuração do Firebase
-        import { firebaseConfig } from './firebaseConfig.js';
-        import { initializeApp } from 'firebase/app';
-        
-        const firebaseApp = initializeApp(firebaseConfig);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

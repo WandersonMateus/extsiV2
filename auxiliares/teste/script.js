@@ -1,14 +1,6 @@
-// script.js
-import { initializeApp } from './firebase/app';
-import { getDatabase, ref, set, onValue } from './firebase/database';
-import { firebaseConfig } from '../../firebaseConfig';
-
-const firebaseApp = initializeApp(firebaseConfig);
-const database = getDatabase(firebaseApp);
-
 const words = [
-    "teste", "teste"
-    // Adicione as outras palavras aqui, até 500
+    "teste"
+// Adicione as outras palavras aqui, até 500
 ];
 
 let currentWord = "";
@@ -18,7 +10,7 @@ let goal = 10; // Pontuação objetivo para passar de nível
 let wordsTyped = 0;
 let maxWords = 10; // Máximo de palavras por nível
 let timeLimit = 80; // Tempo limite inicial em segundos
-const minTimeLimit = 50; // Tempo limite mínimo em segundos
+const minTimeLimit = 50 ; // Tempo limite mínimo em segundos
 let timer;
 let gameActive = false;
 let timeRemaining = timeLimit;
@@ -32,23 +24,11 @@ const timerDisplay = document.getElementById("timer");
 const startButton = document.getElementById("start-button");
 const pauseButton = document.getElementById("pause-button");
 
-let codename = "";
-
 function getRandomWord() {
     return words[Math.floor(Math.random() * words.length)];
 }
 
 function startGame() {
-    const codenameInput = document.getElementById("codename-input").value.trim();
-    if (codenameInput === "") {
-        Swal.fire({
-            icon: 'warning',
-            title: 'Atenção',
-            text: 'Por favor, insira seu codinome para começar o jogo.'
-        });
-        return;
-    }
-    codename = codenameInput;
     if (!gameActive) {
         gameActive = true;
         currentWord = getRandomWord();
@@ -140,27 +120,6 @@ function resetGame() {
     timerDisplay.innerText = `Tempo: ${timeLimit}s`;
     gameActive = false;
 }
-
-function updateRanking() {
-    const rankingRef = ref(database, 'players');
-    onValue(rankingRef, (snapshot) => {
-        const rankingDiv = document.getElementById('ranking');
-        rankingDiv.innerHTML = "";
-        let rankingArray = [];
-        snapshot.forEach((childSnapshot) => {
-            const player = childSnapshot.val();
-            rankingArray.push(player);
-        });
-        rankingArray.sort((a, b) => b.score - a.score); // Ordena do maior para o menor
-        rankingArray.slice(0, 3).forEach((player, index) => {
-            const playerDiv = document.createElement('div');
-            playerDiv.innerText = `${index + 1}. Codinome: ${player.codename}, Nível: ${player.level}, Pontuação: ${player.score}`;
-            rankingDiv.appendChild(playerDiv);
-        });
-    });
-}
-
-document.addEventListener("DOMContentLoaded", updateRanking);
 
 wordInput.addEventListener("input", () => {
     if (gameActive) {
