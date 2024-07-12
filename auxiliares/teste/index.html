@@ -18,12 +18,23 @@
         </div>
         <div id="word-display" class="word-display"></div>
         <input type="text" id="word-input" class="word-input" placeholder="Digite a palavra" autocomplete="off">
+        <input type="text" id="codename-input" placeholder="Seu codinome">
         <div class="button-container">
             <button id="start-button">Iniciar</button>
             <button id="pause-button">Pausar</button>
         </div>
+        <div id="ranking">
+            <!-- Ranking será preenchido dinamicamente pelo script -->
+        </div>
     </div>
+    <script type="module" src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="script.js"></script>
+    <script>
+        // Configuração do Firebase
+        import { firebaseConfig } from './firebaseConfig.js';
+        import { initializeApp } from 'firebase/app';
+        
+        const firebaseApp = initializeApp(firebaseConfig);
+    </script>
 </body>
 </html>
