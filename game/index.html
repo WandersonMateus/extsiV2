@@ -8,19 +8,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Jogo de Digitação</h1>
-        <div id="game-info">
-            <p><span class="sub-title">Pontuação:</span> <span id="score">0</span></p>
-            <p><span class="sub-title">Nível:</span> <span id="level">1</span></p>
-            <p><span class="sub-title">Próximo Nível:</span> <span id="goal">10 pontos</span></p>
-            <p id="timer"><span class="sub-title">Tempo:</span> 90s</p>
+    <div class="box-display"  title="Apenas os 3 melhores que ultrapassaram o LV 20 aparecerão no ranking.">
+        <!-- <h2>Ranking</h2> -->
+        <div class="players-wrapper">
+            <div class="players">
+                <div class="box-player">
+                    <span style="color: #FFD700;">Davi Sousa de Aquino chegou ao LV 30</span>
+                </div>
+                <div class="box-player">
+                    <span style="color: #C0C0C0;">João Pedro Castelo chegou ao LV 24</span>
+                </div>
+            </div>
         </div>
-        <div id="word-display" class="word-display"></div>
-        <input type="text" id="word-input" class="word-input" placeholder="Digite a palavra" autocomplete="off">
-        <div class="button-container">
-            <button id="start-button">Iniciar</button>
-            <button id="pause-button">Pausar</button>
+    </div>
+    <div class="container">
+        <div class="sub-conteiner">
+            <h1>Jogo de Digitação</h1>
+            <div id="game-info">
+                <p><span class="sub-title">Pontuação:</span> <span id="score">0</span></p>
+                <p><span class="sub-title">Nível:</span> <span id="level">1</span></p>
+                <p><span class="sub-title">Próximo Nível:</span> <span id="goal">10 pontos</span></p>
+                <p id="timer"><span class="sub-title">Tempo:</span> 90s</p>
+            </div>
+            <div id="word-display" class="word-display"></div>
+            <input type="text" id="word-input" class="word-input" placeholder="Digite a palavra" autocomplete="off">
+            <div class="button-container">
+                <button id="start-button">Iniciar</button>
+                <button id="pause-button">Pausar</button>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
