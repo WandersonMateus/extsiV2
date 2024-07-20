@@ -33,7 +33,7 @@ let goal = 10; // Pontuação objetivo para passar de nível
 let wordsTyped = 0;
 let maxWords = 10; // Máximo de palavras por nível
 let timeLimit = 80; // Tempo limite inicial em segundos
-const minTimeLimit = 50 ; // Tempo limite mínimo em segundos
+const minTimeLimit = 45 ; // Tempo limite mínimo em segundos
 let timer;
 let gameActive = false;
 let timeRemaining = timeLimit;
