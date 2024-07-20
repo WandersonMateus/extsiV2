@@ -109,7 +109,7 @@ button:hover {
 
 .players-wrapper {
     display: flex;
-    overflow: hidden;
+    /* overflow: hidden; */
     white-space: nowrap;
     position: absolute;
     width: 100%;
