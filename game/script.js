@@ -22,7 +22,7 @@ const words = [
     "amor", "aprender", "aventura", "abraço", "azul", "abraço", "amarelo", "beleza", "brincar", "cantar", "casa", "calma", 
     "chuva", "correr", "carinho", "contar", "correr", "conhecer", "cuidar", "criar", "dançar", "ensinar", "escutar", 
     "estudar", "festa", "flor", "brincar", "gargalhar", "girar", "gostar", "ajudar", "imaginar", "jogar", "ler", "lutar", 
-    "nadar", "ouvir", "plantar", "pintar", "pular", "querer", "rir", "sonhar", "ser", "tocar", "unir", "Oxi", "Wanderson", "Mateus", "dos", "Santos", "Santana", "TSI","Cauê", "Limma","Sousa" 
+    "nadar", "ouvir", "plantar", "pintar", "pular", "querer", "rir", "sonhar", "ser", "tocar", "unir", "Oxi", "Wanderson", "Mateus", "dos", "Santos", "Santana", "TSI","Cauê", "Kayron","Davi"
 // Adicione as outras palavras aqui, até 500
 ];
 
