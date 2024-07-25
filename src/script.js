@@ -22,5 +22,5 @@ clickableDivAxl.addEventListener('click', function() {
 });
 
 clickableDivGame.addEventListener('click', function() {
-    window.location.href = './game/index.html';
+    window.location.href = './game/menu-game.html';
 });

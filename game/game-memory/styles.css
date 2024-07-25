@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #101728;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.memory-game {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.memory-card {
+    width: calc(25% - 10px);
+    height: calc(25% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: .5s;
+}
+.memory-card:hover {
+    scale: 1.03;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 5px;
+}
+
+.memory-card .front-face {
+    transform: rotateY(180deg);
+    background-color: brown;
+}
+
+.back-face {
+    background-color: cadetblue;
+}
+
+
+
+
+.reset {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
