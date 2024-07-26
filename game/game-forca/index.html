@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo da Forca</h1>
+        <select id="theme-select">
+            <option value="animals">Animais</option>
+            <option value="moviesAndSeries">Filmes e Séries</option>
+            <option value="music">Música</option>
+            <option value="geography">Geografia</option>
+            <option value="sports">Esportes</option>
+            <option value="history">História</option>
+            <option value="technology">Tecnologia</option>
+            <option value="literature">Literatura</option>
+            <option value="culinary">Culinária</option>
+            <option value="nature">Natureza</option>
+            <option value="science">Ciência</option>
+            <option value="popCulture">Cultura Pop</option>
+        </select>
+        
+        <div id="word"></div>
+        <div id="keyboard"></div>
+        <div id="hangman">
+            <canvas id="hangmanCanvas" width="200" height="200"></canvas>
+        </div>
+        <button id="reset">Reiniciar</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

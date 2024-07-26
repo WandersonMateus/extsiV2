@@ -23,6 +23,15 @@
                         <h2 style="text-align: center;">Jogo de Digitação</h2>
                     </div>
                 </div>
+        
+                <div class="options">
+                    <div class="box-box passo" id="jf">
+                        <h2 style="text-align: center;">Jogo da Forca</h2>
+                    </div>
+                    <div class="box-box fixacao" id="jd">
+                        <h2 style="text-align: center;">Jogo da Cobra</h2>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -31,12 +40,16 @@
 <script>
     const clickableDivJm = document.getElementById('jm');
     const clickableDivJd = document.getElementById('jd');
+    const clickableDivJf = document.getElementById('jf');
 
     clickableDivJm.addEventListener('click', function() {
     window.location.href = './game-memory/index.html';
 });
     clickableDivJd.addEventListener('click', function() {
     window.location.href = './game-typing/index.html';
+});
+    clickableDivJf.addEventListener('click', function() {
+    window.location.href = './game-forca/index.html';
 });
 </script>
 </body>
