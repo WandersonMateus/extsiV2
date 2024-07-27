@@ -1,54 +1,62 @@
 const themes = {
     animals: [
-        "cachorro", "gato", "elefante", "girafa", "leão", "tigre", "pato", "cavalo", "pinguim", "urso",
-        "macaco", "coelho", "porco", "rato", "ovelha", "cabra", "zebra", "canguru", "galo", "pássaro"
+        "cachorro", "gato", "elefante", "girafa", "tigre",
+        "leão", "urso", "zebra", "cavalo", "coelho",
+        "rato", "hamster", "canguru", "panda", "rinoceronte",
+        "hipopótamo", "lobo", "raposa", "jaguatirica",
+        "búfalo", "camelo","gambá", "hiena", "jiboia", "jumento", "javali",
+        "leopardo", "lontra", "macaco", "morcego", "onça", "orangotango", "paca", "pantera",
+        "pinguim", "porco", "quati", "tamanduá", "toupeira", "tucano"
     ],
-    moviesAndSeries: [
-        "inception", "casablanca", "friends", "moana", "avatar", "joker", "frozen", "titanic", "alien", "shrek",
-        "rocky", "avatar", "godfather", "starwars", "batman", "superman", "avengers", "madmax", "jumanji", "nemo"
+    fruits: [
+        "banana", "maçã", "uva", "laranja", "abacaxi",
+        "manga", "morango", "melancia", "melão", "kiwi",
+        "limão", "cereja", "pêssego", "pera", "ameixa",
+        "abacate", "caju", "framboesa", "mirtilo", "amora",
+        "goiaba", "maracujá", "mamão", "figo", "carambola",
+        "pitanga", "caqui", "jabuticaba", "acerola",
+        "graviola", "tangerina", "lima", "roma", "pinha",
+        "lichia", "cupuaçu", "seriguela", "umbu",
+        "jaca", "sapoti", "buriti", "camapu", "bacaba",
+        "baru", "jenipapo", "mangaba", "taperebá", "pitaya"
     ],
-    music: [
-        "beatles", "beyoncé", "jazz", "pop", "rock", "rap", "reggae", "blues", "edm", "opera",
-        "salsa", "country", "disco", "folk", "samba", "metal", "ballad", "choir", "guitar", "piano"
+    birds: [
+        "pardal", "canário", "papagaio", "arara", "periquito",
+        "calopsita", "pombo", "coruja", "águia", "falcão",
+        "tucano", "beija-flor", "pavão", "cisne", "flamingo",
+        "galinha", "galo", "pato", "marreco", "garça",
+        "pelicano", "albatroz", "gaivota", "corvo", "andorinha",
+        "rouxinol", "tordo", "cotovia", "saracura",
+        "sanhaço", "sabiá", "cigarra", "perdiz",
+        "gavião", "trinca-ferro", "pintassilgo", "mutum",
+        "uru", "jacutinga", "aracuã", "xexéu", "curió",
+        "garibaldi", "saíra", "juruviara", "suiriri",
     ],
-    geography: [
-        "brasil", "paris", "everest", "nilo", "londres", "roma", "tokyo", "nairobi", "moscow", "berlim",
-        "lima", "madrid", "beijing", "sydney", "dubai", "miami", "rio", "lima", "havai", "canada"
+    countries: [
+        "Brasil", "Argentina", "Chile", "Colômbia", "México",
+        "Canadá", "Alemanha", "França", "Itália",
+        "Espanha", "Portugal", "Inglaterra", "Escócia", "Irlanda",
+        "Suíça", "Áustria", "Bélgica", "Holanda", "Dinamarca",
+        "Suécia", "Noruega", "Finlândia", "Rússia", "China",
+        "Japão", "Coreia", "Índia", "Austrália",
+        "Egito", "África", "Marrocos", "Nigéria", "Quênia",
+        "Gana", "Senegal", "Tunísia", "Angola", "Moçambique",
+        "Zâmbia", "Zimbábue", "Malásia", "Singapura", "Indonésia",
+        "Filipinas", "Tailândia", "Vietnã", "Camboja", "Nepal"
     ],
-    sports: [
-        "futebol", "basketball", "críquete", "golfe", "hóquei", "judô", "karatê", "maratona", "natação", "rugby",
-        "skate", "vôlei", "tenis", "surf", "esgrima", "pólo", "patinação", "badminton", "boliche", "yoga"
-    ],
-    history: [
-        "roma", "revolução", "napoleão", "egito", "frança", "grecia", "invasão", "império", "viking", "cruzadas",
-        "dinastia", "egito", "guerra", "holocausto", "imperialismo", "renascimento", "reforma", "sumer", "templário", "vitoria"
-    ],
-    technology: [
-        "apple", "smartphone", "github", "android", "cloud", "data", "internet", "java", "hardware", "software",
-        "laptop", "malware", "network", "python", "robot", "server", "tablet", "wifi", "zoom", "email", "website"
-    ],
-    literature: [
-        "hamlet", "tolkien", "frodo", "austen", "bronte", "dickens", "shakespeare", "joyce", "poe", "orwell",
-        "homer", "twain", "doyle", "james", "wilde", "moliere", "swift", "austen", "huxley", "salinger"
-    ],
-    culinary: [
-        "sushi", "chocolate", "pasta", "pizza", "hamburger", "salada", "sopa", "omelete", "lasagna", "tacos",
-        "ramen", "curry", "burrito", "steak", "sushi", "quiche", "samosa", "nachos", "paella", "waffles"
-    ],
-    nature: [
-        "orquídea", "aurora", "petróleo", "floresta", "deserto", "praia", "montanha", "rio", "lago", "caverna",
-        "veludo", "planície", "vulcão", "neve", "flor", "árvore", "ocean", "campo", "cachoeira", "praia", "deserto"
-    ],
-    science: [
-        "hidrogênio", "saturno", "átomo", "dna", "energia", "fóton", "genética", "hormônio", "laser", "matéria",
-        "neutrino", "óptica", "plutão", "quark", "radiação", "síntese", "vacina", "xenon", "célula", "gravidade"
-    ],
-    popCulture: [
-        "batman", "joker", "mario", "avengers", "breakingbad", "gandalf", "homer", "ironman", "katniss", "leia",
-        "morpheus", "neo", "pikachu", "rick", "scooby", "thor", "yoda", "zelda", "spock", "harrypotter"
+    names: [
+        "Ana", "Pedro", "João", "Maria", "Lucas",
+        "Julia", "Carlos", "Mariana", "Gabriel", "Rafael",
+        "Beatriz", "Matheus", "Bruna", "Felipe", "Aline",
+        "Tiago", "Amanda", "Diego", "Patricia", "Igor",
+        "Carla", "Rodrigo", "Fernanda", "Vinicius", "Laura",
+        "Ricardo", "Renata", "Luiz", "Livia", "Daniel",
+        "Paula", "Rogério", "Elisa", "Gustavo", "Larissa",
+        "Eduardo", "Leticia", "Henrique", "Natalia", "Leandro",
+        "Camila", "Claudia", "Mauricio", "Monica", "André",
+        "Sabrina", "Marcio", "Débora", "Bruno", "Luciana"
     ]
 };
-
 
 
 let selectedTheme = "animals";
@@ -68,10 +76,14 @@ themeSelect.addEventListener("change", (e) => {
     initializeGame();
 });
 
+function normalize(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 function drawHangman() {
     ctx.clearRect(0, 0, hangmanCanvas.width, hangmanCanvas.height);
     ctx.lineWidth = 2;
-    ctx.strokeStyle = '#fff';
+    ctx.strokeStyle = '#fff ';
 
     if (wrongGuesses > 0) { // Base
         ctx.beginPath();
@@ -164,7 +176,7 @@ function guessLetter(letter) {
         }
     });
 
-    if (selectedWord.includes(letter)) {
+    if (normalize(selectedWord).includes(letter)) {
         updateWord();
     } else {
         wrongGuesses++;
@@ -175,7 +187,7 @@ function guessLetter(letter) {
 }
 
 function updateWord() {
-    const displayedWord = selectedWord.split("").map(letter => guessedLetters.includes(letter) ? letter : "_").join(" ");
+    const displayedWord = selectedWord.split("").map(letter => guessedLetters.includes(normalize(letter)) ? letter : "_").join(" ");
     wordContainer.textContent = displayedWord;
 }
 
