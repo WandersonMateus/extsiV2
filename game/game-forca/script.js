@@ -58,7 +58,6 @@ const themes = {
     ]
 };
 
-
 let selectedTheme = "animals";
 let selectedWord = themes[selectedTheme][Math.floor(Math.random() * themes[selectedTheme].length)];
 let guessedLetters = [];
@@ -77,13 +76,13 @@ themeSelect.addEventListener("change", (e) => {
 });
 
 function normalize(str) {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 }
 
 function drawHangman() {
     ctx.clearRect(0, 0, hangmanCanvas.width, hangmanCanvas.height);
     ctx.lineWidth = 2;
-    ctx.strokeStyle = '#fff ';
+    ctx.strokeStyle = '#fff';
 
     if (wrongGuesses > 0) { // Base
         ctx.beginPath();
